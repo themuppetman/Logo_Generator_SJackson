@@ -1,0 +1,21 @@
+{
+  "name": "logo_generator_cli",
+  "version": "1.0.0",
+  "description": "Node.js command-line application allowing users to generate simple logos for projects. Users can input text, select shapes, choose colors, and the application will generate an SVG file that repreaents their logo. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "SJs_SVG_Logo_gen"
+  },
+  "keywords": [
+    "graphics"
+  ],
+  "author": "Seth Jackson",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
