@@ -16,6 +16,7 @@
   "author": "Seth Jackson",
   "license": "UNLICENSED",
   "dependencies": {
-    "inquirer": "^8.2.4"
+    "inquirer": "^8.2.4",
+    "xmlbuilder": "^15.1.1"
   }
 }
