@@ -1,0 +1,379 @@
+sethjackson@seths-MacBook-Pro lib % npm test 
+
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string (3 ms)
+
+  ● textRules › returns correct string
+
+    expect(received).toBe(expected) // Object.is equality
+
+    - Expected  - 4
+    + Received  + 5
+
+      ↵
+    -     Shape Dimensions:
+    +   Shape Dimensions:
+    -     - For circles: Provide 'radius'.
+    +   - For circles: Provide 'radius'.
+    -     - For squares: Provide 'sideLength'.
+    +   - For squares: Provide 'sideLength'.
+    -     - For triangles: Provide 'base' and 'height'.
+    +   - For triangles: Provide 'base' and 'height'.
+    +
+
+      41 |     - For squares: Provide 'sideLength'.
+      42 |     - For triangles: Provide 'base' and 'height'.`;
+    > 43 |       expect(textRules).toBe(expectedText);
+         |                         ^
+      44 |     });
+      45 |   });
+
+      at Object.toBe (lib/shapes.test.js:43:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.473 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % 
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string
+
+  ● textRules › returns correct string
+
+    ReferenceError: textRules is not defined
+
+      40 |     - For squares: Provide 'sideLength'.
+      41 |     - For triangles: Provide 'base' and 'height'.`;
+    > 42 |       expect(textRules).toBe(expectedText);
+         |              ^
+      43 |     });
+      44 |   });
+
+      at Object.textRules (lib/shapes.test.js:42:14)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.456 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string (1 ms)
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string (2 ms)
+
+  ● textRules › returns correct string
+
+    expect(received).toBe(expected) // Object.is equality
+
+    - Expected  - 4
+    + Received  + 5
+
+      ↵
+    -     Shape Dimensions:
+    +   Shape Dimensions:
+    -     - For circles: Provide 'radius'.
+    +   - For circles: Provide 'radius'.
+    -     - For squares: Provide 'sideLength'.
+    +   - For squares: Provide 'sideLength'.
+    -     - For triangles: Provide 'base' and 'height'.
+    +   - For triangles: Provide 'base' and 'height'.
+    +
+
+      40 |     - For squares: Provide 'sideLength'.
+      41 |     - For triangles: Provide 'base' and 'height'.`;
+    > 42 |       expect(textRules).toBe(expectedText);
+         |                         ^
+      43 |     });
+      44 |   });
+
+      at Object.toBe (lib/shapes.test.js:42:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.262 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string (1 ms)
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string (3 ms)
+
+  ● textRules › returns correct string
+
+    expect(received).toBe(expected) // Object.is equality
+
+    - Expected  - 4
+    + Received  + 5
+
+      ↵
+    -     Shape Dimensions:
+    +   Shape Dimensions:
+    -     - For circles: Provide 'radius'.
+    +   - For circles: Provide 'radius'.
+    -     - For squares: Provide 'sideLength'.
+    +   - For squares: Provide 'sideLength'.
+    -     - For triangles: Provide 'base' and 'height'.
+    +   - For triangles: Provide 'base' and 'height'.
+    +
+
+      40 |     - For squares: Provide 'sideLength'.
+      41 |     - For triangles: Provide 'base' and 'height'.`;
+    > 42 |       expect(textRules).toBe(expectedText);
+         |                         ^
+      43 |     });
+      44 |   });
+
+      at Object.toBe (lib/shapes.test.js:42:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.15 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string (1 ms)
+
+  ● textRules › returns correct string
+
+    expect(received).toBe(expected) // Object.is equality
+
+    - Expected  - 4
+    + Received  + 6
+
+    - Shape Dimensions:
+    +
+    +   Shape Dimensions:
+    -     - For circles: Provide 'radius'.
+    +   - For circles: Provide 'radius'.
+    -     - For squares: Provide 'sideLength'.
+    +   - For squares: Provide 'sideLength'.
+    -     - For triangles: Provide 'base' and 'height'.
+    +   - For triangles: Provide 'base' and 'height'.
+    +
+
+      41 |     - For triangles: Provide 'base' and 'height'.
+      42 |     `.trim(); // Remove the leading and trailing whitespace
+    > 43 |       expect(textRules).toBe(expectedText);
+         |                         ^
+      44 |     });
+      45 |   });
+
+      at Object.toBe (lib/shapes.test.js:43:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.247 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string (2 ms)
+
+  ● textRules › returns correct string
+
+    expect(received).toBe(expected) // Object.is equality
+
+    - Expected  - 4
+    + Received  + 6
+
+    - Shape Dimensions:
+    +
+    +   Shape Dimensions:
+    -         - For circles: Provide 'radius'.
+    +   - For circles: Provide 'radius'.
+    -         - For squares: Provide 'sideLength'.
+    +   - For squares: Provide 'sideLength'.
+    -         - For triangles: Provide 'base' and 'height'.
+    +   - For triangles: Provide 'base' and 'height'.
+    +
+
+      41 |         - For triangles: Provide 'base' and 'height'.
+      42 |     `.trim(); // Remove the leading and trailing whitespace
+    > 43 |       expect(textRules).toBe(expectedText);
+         |                         ^
+      44 |     });
+      45 |   });
+
+      at Object.toBe (lib/shapes.test.js:43:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.244 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string (2 ms)
+
+  ● textRules › returns correct string
+
+    expect(received).toBe(expected) // Object.is equality
+
+    - Expected  - 4
+    + Received  + 6
+
+    - Shape Dimensions:
+    +
+    +   Shape Dimensions:
+    -     - For circles: Provide 'radius'.
+    +   - For circles: Provide 'radius'.
+    -     - For squares: Provide 'sideLength'.
+    +   - For squares: Provide 'sideLength'.
+    -     - For triangles: Provide 'base' and 'height'.
+    +   - For triangles: Provide 'base' and 'height'.
+    +
+
+      41 |     - For triangles: Provide 'base' and 'height'.
+      42 |     `.trim(); // Remove the leading and trailing whitespace
+    > 43 |       expect(textRules).toBe(expectedText);
+         |                         ^
+      44 |     });
+      45 |   });
+
+      at Object.toBe (lib/shapes.test.js:43:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.233 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ FAIL  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✕ returns correct string (1 ms)
+
+  ● textRules › returns correct string
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Shape Dimensions:\n        - For circles: Provide 'radius'.\n        - For squares: Provide 'sideLength'.\n        - For triangles: Provide 'base' and 'height'./
+    Received string:  "
+      Shape Dimensions:
+      - For circles: Provide 'radius'.
+      - For squares: Provide 'sideLength'.
+      - For triangles: Provide 'base' and 'height'.
+    "
+
+      41 |         - For triangles: Provide 'base' and 'height'.
+      42 |     `.trim(); // Remove the leading and trailing whitespace
+    > 43 |       expect(textRules).toMatch(new RegExp(expectedText));
+         |                         ^
+      44 |     });
+      45 |   });
+
+      at Object.toMatch (lib/shapes.test.js:43:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.239 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % npm test
+
+> logo_generator_cli@1.0.0 test
+> jest
+
+ PASS  lib/shapes.test.js
+  Circle
+    ✓ render method returns correct SVG string (1 ms)
+  Square
+    ✓ render method returns correct SVG string
+  Triangle
+    ✓ render method returns correct SVG string
+  textRules
+    ✓ returns correct string
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        0.238 s, estimated 1 s
+Ran all test suites.
+sethjackson@seths-MacBook-Pro lib % 
