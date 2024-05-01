@@ -4,7 +4,7 @@
   "description": "Node.js command-line application allowing users to generate simple logos for projects. Users can input text, select shapes, choose colors, and the application will generate an SVG file that repreaents their logo. ",
   "main": "index.js",
   "scripts": {
-    "test": "package.json"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "dependencies": {
     "inquirer": "^8.2.4",
     "xmlbuilder": "^15.1.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
