@@ -3,6 +3,24 @@ const { Circle, Square, Triangle, textRules } = require('./lib/shapes');
 const fs = require('fs');
 const path = require('path');
 
+class SVG{
+    constructor() {
+        this.textElement = ''
+        this.shapeElement = ''
+    }
+    render() {
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeElement}${this.textElement}</svg>`
+    }
+    setShapeElement(shape) {
+        this.shapeElement = shape.render()
+    }
+    setTextElement(text,color) {
+        this.textElement = `<text x="150" y="125" font-size="75" text-anchor="middle" fill="${color}">${text}</text>`
+    }
+    addShape(shape) {
+        this.shapeElement += shape.render()
+    }
+}
 
 // Function to prompt the user
 function promptUser() {
@@ -34,53 +52,52 @@ function promptUser() {
              message: 'Enter shape color (keyword or hexadecimal number):'
          }
      ])
-     .then(data => {
-         console.log('User input:', data);
-         generateSVG(data);
+     .then(answers => {
+        const svgContent = generateSVG(answers); // Pass the entire answers object
+        saveSVG(svgContent, answers); // Pass both SVG content and answers to saveSVG
+        console.log(`Generated ${answers.fileName}.svg`); 
      });
       
  }
 
- function generateSVG(data) {
+ function generateSVG(answers) {
+    const svg = new SVG(answers.text, answers.fileName, answers.textColor, answers.shape, answers.shapeColor);
+    
+    svg.setTextElement(answers.text, answers.textColor);//add text to svg
 
-    const svg = new svg(text, fileName, textColor, shape, shapeColor);
-    switch (shape) {
+    switch (answers.shape) {
         case 'Circle':
-            svg.addShape(new Circle(shape, shapeColor));
+            svg.addShape(new Circle(answers.shape, answers.shapeColor));
             break;
         case 'Square':
-            svg.addShape(new Square(shape, shapeColor));
+            svg.addShape(new Square(answers.shape, answers.shapeColor));
             break;
         case 'Triangle':
-            svg.addShape(new Triangle(shape, shapeColor));
+            svg.addShape(new Triangle(answers.shape, answers.shapeColor));
             break;
     }
-    return svg.render();
+    return svg.render(saveSVG);
 }
 
- function saveSVG(svg, data) { //needed to pass in answers to saveSVG
+ function saveSVG(svg, answers) { //needed to pass in answers to saveSVG
     const folderPath = './examples';
-    const filePath = new filePath(folderPath, `${data.fileName}.svg`);
+    fs.writeFileSync(path.join(folderPath, `${answers.fileName}.svg`), svg);
     
-    fs.writeFileSync('', svg);
-    console.log(`SVG saved to examples/${data.fileName}.svg`); // Just fileName
+    console.log(`SVG saved to examples/${answers.fileName}.svg`); // Just fileName
 }
 
-saveSVG();
 
-async function generateSVG() {
+
+async function init() {
   try {
     const answers = await promptUser();
-    console.log('User input:', data);
+    console.log('User input:', answers);
 
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-
-
-
-generateSVG();
+init(generateSVG);
 
 
