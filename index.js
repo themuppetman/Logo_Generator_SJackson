@@ -9,13 +9,19 @@ class SVG{
         this.shapeElement = ''
     }
     render() {
-        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeElement}${this.textElement}</svg>`
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="300">${this.shapeElement}${this.textElement}</svg>`
     }
     setShapeElement(shape) {
         this.shapeElement = shape.render()
     }
     setTextElement(text,color) {
-        this.textElement = `<text x="150" y="125" font-size="75" text-anchor="middle" fill="${color}">${text}</text>`
+        this.textElement = `<text x="150" y="75" font-size="75" text-anchor="middle" shape="Square" fill="${color}">${text}</text>`
+    }
+    setTextElement(text,color) {
+        this.textElement = `<text x="75" y="150" font-size="75" textAnchor="middle" shape="Triangle" fill="${color}">${text}</text>`
+    }    
+    setTextElement(text,color) {
+        this.textElement = `<text x="75" y="125" font-size="75" textAnchor="middle" shape="Circle" fill="${color}">${text}</text>`
     }
     addShape(shape) {
         this.shapeElement += shape.render()
