@@ -1,30 +1,43 @@
 const inquirer = require('inquirer');
-const { Circle, Square, Triangle, textRules } = require('./lib/shapes'); 
+const { Circle, Square, Triangle } = require('./lib/shapes'); 
 const fs = require('fs');
 const path = require('path');
 
-class SVG{
+class SVG {
     constructor() {
-        this.textElement = ''
-        this.shapeElement = ''
+        this.textElement = '';
+        this.shapeElement = '';
     }
+
     render() {
-        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="300">${this.shapeElement}${this.textElement}</svg>`
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="300">${this.shapeElement}${this.textElement}</svg>`;
     }
+
     setShapeElement(shape) {
-        this.shapeElement = shape.render()
+        this.shapeElement = shape.render();
     }
-    setTextElement(text,color) {
-        this.textElement = `<text x="150" y="75" font-size="75" text-anchor="middle" shape="Square" fill="${color}">${text}</text>`
+
+    setTextElement(text, color, shapeType) {
+        let x = 150, y = 150, fontSize;
+        const maxFontSize = 100;
+        const baseSize = 50;
+        
+        // Adjust font size based on text length 
+        if (text.length === 1) {
+            fontSize = baseSize * 1.5;
+        } else if (text.length === 2) {
+            fontSize = baseSize * 1.2;
+        } else {
+            fontSize = baseSize;
+        }
+
+        fontSize = Math.min(fontSize, maxFontSize);
+
+        this.textElement = `<text x="${x}" y="${y}" font-size="${fontSize}" text-anchor="middle" dominant-baseline="middle" fill="${color}">${text}</text>`;
     }
-    setTextElement(text,color) {
-        this.textElement = `<text x="75" y="150" font-size="75" textAnchor="middle" shape="Triangle" fill="${color}">${text}</text>`
-    }    
-    setTextElement(text,color) {
-        this.textElement = `<text x="75" y="125" font-size="75" textAnchor="middle" shape="Circle" fill="${color}">${text}</text>`
-    }
+
     addShape(shape) {
-        this.shapeElement += shape.render()
+        this.shapeElement += shape.render();
     }
 }
 
@@ -34,11 +47,12 @@ function promptUser() {
          {
              type: 'input',
              name: 'text',
-             message: 'Enter text (up to three characters):'
+             message: 'Enter text (up to three characters):',
+            //  validate: input => input.length <= 3 || 'Text must be up to three characters'
          },
          {
             type: 'input',
-            name: 'fileName', //Correct sybtax error
+            name: 'fileName',
             message: 'Enter file name:'
          },
          {
@@ -47,7 +61,7 @@ function promptUser() {
              message: 'Enter text color (keyword or hexadecimal number):'
          },
          {
-             type: 'list',//switch to list
+             type: 'list',
              name: 'shape',
              message: 'Choose a shape:',
              choices: ['Circle', 'Triangle', 'Square']
@@ -59,51 +73,47 @@ function promptUser() {
          }
      ])
      .then(answers => {
-        const svgContent = generateSVG(answers); // Pass the entire answers object
-        saveSVG(svgContent, answers); // Pass both SVG content and answers to saveSVG
+        const svgContent = generateSVG(answers);
+        saveSVG(svgContent, answers);
         console.log(`Generated ${answers.fileName}.svg`); 
      });
-      
- }
+}
 
- function generateSVG(answers) {
-    const svg = new SVG(answers.text, answers.fileName, answers.textColor, answers.shape, answers.shapeColor);
+function generateSVG(answers) {
+    const svg = new SVG();
     
-    svg.setTextElement(answers.text, answers.textColor);//add text to svg
+    svg.setShapeElement(getShapeInstance(answers.shape, answers.shapeColor));
+    svg.setTextElement(answers.text, answers.textColor, answers.shape);
 
-    switch (answers.shape) {
+    return svg.render();
+}
+
+function getShapeInstance(shapeType, color) {
+    switch (shapeType) {
         case 'Circle':
-            svg.addShape(new Circle(answers.shape, answers.shapeColor));
-            break;
+            return new Circle(color);
         case 'Square':
-            svg.addShape(new Square(answers.shape, answers.shapeColor));
-            break;
+            return new Square(color);
         case 'Triangle':
-            svg.addShape(new Triangle(answers.shape, answers.shapeColor));
-            break;
+            return new Triangle(color);
     }
-    return svg.render(saveSVG);
 }
 
- function saveSVG(svg, answers) { //needed to pass in answers to saveSVG
+function saveSVG(svg, answers) {
     const folderPath = './examples';
+    if (!fs.existsSync(folderPath)){
+        fs.mkdirSync(folderPath);
+    }
     fs.writeFileSync(path.join(folderPath, `${answers.fileName}.svg`), svg);
-    
-    console.log(`SVG saved to examples/${answers.fileName}.svg`); // Just fileName
+    console.log(`SVG saved to examples/${answers.fileName}.svg`);
 }
-
-
 
 async function init() {
-  try {
-    const answers = await promptUser();
-    console.log('User input:', answers);
-
-  } catch (error) {
-    console.error('Error:', error);
-  }
+    try {
+        await promptUser();
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
-init(generateSVG);
-
-
+init();
