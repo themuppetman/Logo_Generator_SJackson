@@ -15,8 +15,15 @@
   
   ## Installation
   In the terminal the user only needs to run an npm install and load the index file via node. (node index.js)  
+
+  - [Jest](https://www.npmjs.com/package/jest)
+  - [NodeJS](https://nodejs.org/en/download/package-manager)
+  - [Inquirer 8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4)
   
+   ![Alt text](SVG_Video.gif)
+  - [Walkthrough_Video](https://youtu.be/8-wmX1bPeeY)
   ## Usage
+  
   - Node JS - Java Script - Inquirer  
   
   ## Contributing
